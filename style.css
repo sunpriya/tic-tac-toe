@@ -1,0 +1,50 @@
+		.border{
+
+		border: 1px solid black;
+			
+		}
+		@keyframes cell{
+			from{background-color:  rgb(229,23,57);}
+			to{ background-color:grey;}
+		}
+		td{
+			border: 5px solid black;
+			animation-name: cell;
+            animation-duration: 1s;
+			width: 100px;
+			height: 100px;
+			text-align: center;
+			font-size: 40px;
+		}
+		.body{
+			background-color: rgb(229,23,57);
+		}
+		.heading{
+			font-size: 70px;
+			font-weight: 30px;
+			color: rgb(23,229,92);
+			text-align: center;
+			text-shadow: 10px;
+
+		}
+		td:visited{
+			background-color: grey;
+		}
+		td:hover{
+			background-color: lightgrey;
+		}
+		td:active{
+			background-color: grey;
+		}
+
+		#msg{
+			font-size: 40px;
+			font-family: ariel;
+		}
+		button:hover{
+			background-color: rgb(222,229,23);
+		}
+		button{
+			font-size: 50px;
+			background-color: rgb(229,147,23);
+		}
