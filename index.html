@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title >tic-tac-toe</title>
+	<h1 class="heading">Tic Tac Toe</h1>
+
+	 <link rel="stylesheet" href="C:\Users\sunpriya\Desktop\style.css">
+	<script type="text/javascript">
+		function start()
+		{
+			document.turn="X";
+			document.winner=null;
+			document.count=0;
+			message(document.turn+" starts the game.")
+		}
+		function message(msg)
+		{
+			document.getElementById("msg").innerText=msg;
+		}
+		function change()
+		{
+			    if(winner())
+            		{   
+            			message("Congratulations! "+document.turn+" wins");
+            			document.winner=document.turn;
+            		}
+            	else if(document.turn == "X")
+				{
+				
+					document.turn="O";
+					message(document.turn+" gets the turn.");
+				}
+				else
+				{
+					document.turn="X";
+					message(document.turn+" gets the turn.");
+				}
+		}
+		function move(some)
+		{
+            
+            if(document.winner!=null)
+            	message(document.winner+" has already won,Play Again!");
+            else 
+            if(some.innerText=="")
+
+            {
+           		 some.innerText=document.turn;
+           		 some.style.backgroundColor = 'rgb(255, 80, 80)';
+           		 document.count=document.count+1;
+           		 change();
+                 	
+			}
+			else
+				message("Already filled");
+			
+			if (document.count==9&&document.winner==null) {
+				message("Draw! Play Again");
+			}
+			
+		}
+		function box(num)
+		{
+			return document.getElementById(num).innerText;
+		}
+		function row(a,b,c,m){
+			if(box(a)==m&&box(b)==m&&box(c)==m)
+				return true;
+			else
+				return false;
+		}
+		function winner()
+		{
+			if(row(1,2,3,document.turn)||
+				row(4,5,6,document.turn)||
+				row(7,8,9,document.turn)||
+				row(1,4,7,document.turn)||
+				row(2,5,8,document.turn)||
+				row(3,6,9,document.turn)||
+				row(1,5,9,document.turn)||
+				row(3,5,7,document.turn)
+				)
+				return true;
+			else
+				return false;
+		}
+		
+	</script>
+</head>
+<body onload="start(); " class="body">
+	<center>
+	<div id="msg"></div>
+	
+<table id='x'" class="table table-bordered">
+	<tr>
+		<td id="1" onclick="move(this);"></td>
+		<td id="2"onclick="move(this);"></td>
+		<td id='3'onclick="move(this);"></td>
+	</tr>
+	<tr>
+		<td id="4"onclick="move(this);"></td>
+		<td id="5"onclick="move(this);"></td>
+		<td id='6'onclick="move(this);"></td>
+	</tr>
+	<tr>
+		<td id="7"onclick="move(this);"></td>
+		<td id="8"onclick="move(this);"></td>
+		<td id="9"onclick="move(this);"></td>
+	</tr>
+</table>
+<button onclick="location.reload();" class="btn btn-lg btn-block">PLAY AGAIN</button>
+</center>
+</body>
+</html>
